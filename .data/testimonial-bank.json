@@ -1,0 +1,542 @@
+[
+  {
+    "id": "tony-robbins",
+    "companyName": "Tony Robbins",
+    "companyDescription": "The Tony Robbins organization is the premier global entity in personal development, life coaching, and business mastery. For over four decades, Tony Robbins has served as the world's leading life and business strategist.",
+    "businessModel": "",
+    "industry": "Coaching & Consulting",
+    "logoUrl": "https://framerusercontent.com/images/mctlQMn8IOl6JHT9R4vkuntItlU.png",
+    "quote": "In just 6 months, Hyros allowed us to scale our ad spend by 43% for Business Mastery and over 100% for Unleash The Power Within.",
+    "stat": "43%",
+    "statLabel": "improvement",
+    "personName": "Tony Robbins",
+    "benefitFocus": "scaling",
+    "tags": [
+      "coaching"
+    ],
+    "domain": "tonyrobbins.com",
+    "createdAt": "2026-01-09T20:44:48.812Z"
+  },
+  {
+    "id": "alex-hormozi",
+    "companyName": "Alex Hormozi",
+    "companyDescription": "Acquisition.com is an investment holding company that builds, grows, and scales businesses. Founded by Alex Hormozi, it focuses on minority equity stakes in cash-flow-positive businesses.",
+    "businessModel": "",
+    "industry": "Finance & Trading",
+    "logoUrl": "https://framerusercontent.com/images/EDIU1aR30HApbeE8zZttmUOT6c.png",
+    "quote": "You have transparency in all ad tracking, the people that are attracted to HYROS, are psycho's (about numbers / tracking growth) like me.",
+    "stat": "",
+    "statLabel": "",
+    "personName": "Alex Hormozi",
+    "benefitFocus": "scaling",
+    "tags": [],
+    "domain": "acquisition.com",
+    "createdAt": "2026-01-09T20:44:48.812Z"
+  },
+  {
+    "id": "frank-kern",
+    "companyName": "Frank Kern",
+    "companyDescription": "Frank Kern is widely considered one of the most influential direct response internet marketers in history. He runs a high-level consultancy and training organization.",
+    "businessModel": "Kern sells high-ticket consulting, masterminds, and certification programs. His marketing is characterized by \"Intent Based Branding\"—long-form video content designed to build trust and authority before asking for a sale.",
+    "industry": "Coaching & Consulting",
+    "logoUrl": "https://framerusercontent.com/images/JgTUnWYdTXh8BipYblcfh7DDkM.png",
+    "quote": "If you don't use Hyros you aren't even woke. Buy Hyros.",
+    "stat": "",
+    "statLabel": "",
+    "personName": "Frank Kern",
+    "benefitFocus": "ai-targeting",
+    "tags": [
+      "high-ticket",
+      "coaching"
+    ],
+    "domain": "frankkern.com",
+    "createdAt": "2026-01-09T20:44:48.812Z"
+  },
+  {
+    "id": "grant-cardone",
+    "companyName": "Grant Cardone",
+    "companyDescription": "",
+    "businessModel": "A vast ecosystem ranging from low-ticket entry points ($20 books) to $100k+ masterminds and private equity funds (Cardone Capital). The model relies on aggressive, high-volume, omnipresent advertising across all platforms to dominate attention.",
+    "industry": "SaaS & Technology",
+    "logoUrl": "https://framerusercontent.com/images/MUrRN97yO1jqqx3T3sPHZ1o81e4.png",
+    "quote": "Has made such a huge difference in the GC camp. Has helped us really see what's really going on. You grow or you don't pay.",
+    "stat": "10X",
+    "statLabel": "improvement",
+    "personName": "Grant Cardone",
+    "benefitFocus": "scaling",
+    "tags": [
+      "coaching"
+    ],
+    "domain": "grantcardone.com",
+    "createdAt": "2026-01-09T20:44:48.812Z"
+  },
+  {
+    "id": "jay-shetty-ad-team",
+    "companyName": "Jay Shetty Ad Team",
+    "companyDescription": "",
+    "businessModel": "The business monetizes through certification schools (training life coaches) and educational courses.",
+    "industry": "Coaching & Consulting",
+    "logoUrl": "https://framerusercontent.com/images/RPvKMcOAwzL21aoDb7Q6SHjhQM.png",
+    "quote": "Before Hyros it wasn't easy to track exactly where our best customers were coming from. Now we easily see which ads to scale and which ones to stop. Our investment in Hyros has paid for itself many times over.",
+    "stat": "",
+    "statLabel": "",
+    "personName": "Jay Shetty",
+    "benefitFocus": "scaling",
+    "tags": [
+      "info-product",
+      "coaching"
+    ],
+    "domain": "jayshetty.me",
+    "createdAt": "2026-01-09T20:44:48.812Z"
+  },
+  {
+    "id": "dean-graziosi",
+    "companyName": "Dean Graziosi",
+    "companyDescription": "",
+    "businessModel": "He sells books, courses, and the \"Mastermind.com\" platform subscription. His marketing often involves \"free plus shipping\" book funnels that lead to high-ticket upsells.",
+    "industry": "SaaS & Technology",
+    "logoUrl": "https://framerusercontent.com/images/2cbmUv1PFIMcy3puFJXBVdDcAw.png",
+    "quote": "Digital heavy hitter",
+    "stat": "",
+    "statLabel": "",
+    "personName": "Tony Robbins",
+    "benefitFocus": "scaling",
+    "tags": [
+      "high-ticket",
+      "subscription",
+      "info-product",
+      "coaching"
+    ],
+    "domain": "deangraziosi.com",
+    "createdAt": "2026-01-09T20:44:48.812Z"
+  },
+  {
+    "id": "impact-theory",
+    "companyName": "Impact Theory",
+    "companyDescription": "Impact Theory is a media company founded by Tom Bilyeu (co-founder of Quest Nutrition) focused on empowering content.",
+    "businessModel": "The company operates \"Impact Theory University,\" Web3 projects (Project Kyzen), and media sponsorships.",
+    "industry": "Business & Entrepreneurship",
+    "logoUrl": "https://framerusercontent.com/images/RWFCl0xURNZanSfOeK9k91pywo.png",
+    "quote": "Hyros has been critical for figuring out where our best customers are really coming from. These days the path from click to sale is a mess, but not with Hyros. We finally know what to double down on and what's just burning cash.",
+    "stat": "0x",
+    "statLabel": "improvement",
+    "personName": "Tom Bilyeu",
+    "benefitFocus": "scaling",
+    "tags": [],
+    "domain": "impacttheory.com",
+    "createdAt": "2026-01-09T20:44:48.812Z"
+  },
+  {
+    "id": "sam-ovens",
+    "companyName": "Sam Ovens",
+    "companyDescription": "Sam Ovens is the founder of Consulting.com and Skool.com, a community platform for creators.",
+    "businessModel": "Originally high-ticket consulting training ($2,000+), now transitioning to SaaS (Skool) which generates recurring revenue from community creators.",
+    "industry": "SaaS & Technology",
+    "logoUrl": "https://framerusercontent.com/images/nEQnxrXH34cIwKAUg41hfkRFLS4.png",
+    "quote": "Everybody who uses it in my mastermind swears by it. The ROI increase from increased tracking accuracy outweighs the cost. It's a simple math decision.",
+    "stat": "",
+    "statLabel": "",
+    "personName": "Sam Ovens",
+    "benefitFocus": "ai-targeting",
+    "tags": [
+      "high-ticket",
+      "subscription",
+      "coaching",
+      "saas"
+    ],
+    "domain": "skool.com",
+    "createdAt": "2026-01-09T20:44:48.812Z"
+  },
+  {
+    "id": "dan-henry",
+    "companyName": "Dan Henry",
+    "companyDescription": "Dan Henry is a high-ticket sales trainer and author, known for his aggressive and direct marketing style.",
+    "businessModel": "Coaching programs, keynote speaking, and digital products focused on helping others sell high-ticket services.",
+    "industry": "Coaching & Consulting",
+    "logoUrl": "https://framerusercontent.com/images/XZ3KP8ZiVxYXsyEj4rdwzqkgMQ.png",
+    "quote": "With HYROS, I can see exactly where my sales are coming from and we are already 300% more profitable within 72 hours of using the software.",
+    "stat": "300%",
+    "statLabel": "profitable",
+    "personName": "Dan Henry",
+    "benefitFocus": "scaling",
+    "tags": [
+      "high-ticket",
+      "info-product",
+      "coaching"
+    ],
+    "domain": "danhenry.com",
+    "createdAt": "2026-01-09T20:44:48.812Z"
+  },
+  {
+    "id": "traffic-and-funnels",
+    "companyName": "Traffic and Funnels",
+    "companyDescription": "A premier consultancy for client acquisition and inbound marketing funnels, helping client businesses grow.",
+    "businessModel": "B2B service and consultancy, helping other businesses build funnels and manage paid traffic.",
+    "industry": "Agency & Marketing",
+    "logoUrl": "https://framerusercontent.com/images/JOjRhs0sdfiVe2NTtJL0ByMLQ.png",
+    "quote": "Hyros heavy hitters",
+    "stat": "",
+    "statLabel": "",
+    "benefitFocus": "scaling",
+    "tags": [
+      "b2b",
+      "agency"
+    ],
+    "domain": "trafficandfunnels.com",
+    "createdAt": "2026-01-09T20:44:48.812Z"
+  },
+  {
+    "id": "kinobody",
+    "companyName": "Kinobody",
+    "companyDescription": "A fitness lifestyle brand promoting intermittent fasting and specific \"Hollywood physique\" training protocols.",
+    "businessModel": "Hybrid Info/E-com. Sells supplements (Octane, Collagen) and digital training programs.",
+    "industry": "Health & Fitness",
+    "logoUrl": "https://framerusercontent.com/images/pUvGtrLCTy0VEY6G1CmHnSxod8o.png",
+    "quote": "personality",
+    "stat": "",
+    "statLabel": "",
+    "benefitFocus": "ai-targeting",
+    "tags": [
+      "info-product"
+    ],
+    "domain": "kinobody.com",
+    "createdAt": "2026-01-09T20:44:48.812Z"
+  },
+  {
+    "id": "legion-athletics",
+    "companyName": "Legion Athletics",
+    "companyDescription": "Legion Athletics is the \\#1 bestselling brand of all-natural sports supplements, founded by Mike Matthews. It is known for its commitment to science-based formulations and transparency.",
+    "businessModel": "Direct-to-Consumer (DTC) supplements (Protein, Pre-workout, Vitamins). The model relies on a high repeat purchase rate (LTV) to offset high initial acquisition costs (CAC).",
+    "industry": "Health & Fitness",
+    "logoUrl": "https://framerusercontent.com/images/ewYp0PHw197fPZp2Eeyv1i5Oyk.png",
+    "quote": "We had our best Black Friday sale ever, growing revenue 25% YOY and HYROS was instrumental. In making this happen.",
+    "stat": "25%",
+    "statLabel": "yoy growth",
+    "personName": "Black Friday",
+    "benefitFocus": "scaling",
+    "tags": [
+      "dtc"
+    ],
+    "domain": "legionathletics.com",
+    "createdAt": "2026-01-09T20:44:48.812Z"
+  },
+  {
+    "id": "tan-books",
+    "companyName": "Tan Books",
+    "companyDescription": "A publisher of Catholic books, bibles, and educational materials.",
+    "businessModel": "Traditional e-commerce (books, calendars, courses).",
+    "industry": "E-Commerce",
+    "logoUrl": "https://framerusercontent.com/images/ioHFjpt5vCb4VFlXfnkOnQAGNL8.png",
+    "quote": "Thanks to Hyros, we were able to double our ad effectiveness compared to the previous year... We are consistently achieving over 500% ROAS across our campaigns.",
+    "stat": "500%",
+    "statLabel": "roas",
+    "benefitFocus": "scaling",
+    "tags": [
+      "dtc",
+      "info-product"
+    ],
+    "domain": "tanbooks.com",
+    "createdAt": "2026-01-09T20:44:48.812Z"
+  },
+  {
+    "id": "ladyboss",
+    "companyName": "LadyBoss",
+    "companyDescription": "A women's weight loss community and supplement empire, helping women lose weight while loving themselves again.",
+    "businessModel": "Challenge funnels (e.g., \"7 Day Slimdown\") leading to subscription supplements and coaching. The business is built on community and recurring subscriptions.",
+    "industry": "Health & Fitness",
+    "logoUrl": "https://framerusercontent.com/images/2tbf7SVvasScUA8JRH8q483imU.png",
+    "quote": "Extremely IMPRESSED, not just with the tool but HYROS's team and support.",
+    "stat": "",
+    "statLabel": "",
+    "benefitFocus": "ai-targeting",
+    "tags": [
+      "subscription",
+      "coaching"
+    ],
+    "domain": "ladyboss.com",
+    "createdAt": "2026-01-09T20:44:48.813Z"
+  },
+  {
+    "id": "beautiful-earth-boutique",
+    "companyName": "Beautiful Earth Boutique",
+    "companyDescription": "A London-based jewelry and accessories brand focusing on nature-inspired designs.",
+    "businessModel": "High-volume, visual-heavy DTC e-commerce. Selling affordable jewelry with a mission to support wildlife charities.",
+    "industry": "E-Commerce",
+    "logoUrl": "https://framerusercontent.com/images/Bz87rbkoMvCZeKMPxhU1wcyQpH0.png",
+    "quote": "The result was an immediate ROI making Hyros a vital tool for any e-com business.",
+    "stat": "",
+    "statLabel": "",
+    "benefitFocus": "scaling",
+    "tags": [
+      "dtc"
+    ],
+    "domain": "beautifulearthboutique.com",
+    "createdAt": "2026-01-09T20:44:48.813Z"
+  },
+  {
+    "id": "sultan-of-style",
+    "companyName": "Sultan of Style",
+    "companyDescription": "A men's fragrance and grooming brand.",
+    "businessModel": "E-commerce, focused on high-margin consumables (fragrance).",
+    "industry": "E-Commerce",
+    "logoUrl": "https://framerusercontent.com/images/JOps5AMD7JNjRuaCbLfySC68qAI.png",
+    "quote": "I would say we are saving 50% on adspend Just using the software. When we aggressively scaled a fragrance brand to multiple 6 figure days, we could make real-time decision that allowed us to massively cut losing ads ASAP and double down on the winners.",
+    "stat": "50k",
+    "statLabel": "improvement",
+    "benefitFocus": "scaling",
+    "tags": [
+      "dtc"
+    ],
+    "domain": "sultanofstyle.com",
+    "createdAt": "2026-01-09T20:44:48.813Z"
+  },
+  {
+    "id": "regenalight",
+    "companyName": "Regenalight",
+    "companyDescription": "A health technology company specializing in red light therapy devices.",
+    "businessModel": "High-ticket e-commerce health products. These are one-time, expensive purchases that require significant consumer education.",
+    "industry": "Health & Fitness",
+    "logoUrl": "https://framerusercontent.com/images/fHB53buDia4iankkSlIWlcaK9U.png",
+    "quote": "I was also able to see that my FB ads were massively over reporting. Boom massive increase in. Net profit. Went from 1 mil in revenue to 3 million/mo in Q4... burning $80,000-100,000 cash there per month.",
+    "stat": "100k",
+    "statLabel": "improvement",
+    "benefitFocus": "scaling",
+    "tags": [
+      "high-ticket",
+      "dtc",
+      "info-product"
+    ],
+    "domain": "regenalight.com",
+    "createdAt": "2026-01-09T20:44:48.813Z"
+  },
+  {
+    "id": "milky-mama",
+    "companyName": "Milky Mama",
+    "companyDescription": "A brand created by a registered nurse offering lactation cookies, supplements, and support for breastfeeding mothers.",
+    "businessModel": "Niche DTC e-commerce with high community engagement and repeat purchases.",
+    "industry": "Health & Fitness",
+    "logoUrl": "https://framerusercontent.com/images/Zi1MlboiPvOnbtvDuaf2ZFIJsLo.png",
+    "quote": "Hyros is a GAME CHANGER. I can see which ads are performing well and scale without guesswork.",
+    "stat": "",
+    "statLabel": "",
+    "benefitFocus": "scaling",
+    "tags": [
+      "dtc"
+    ],
+    "domain": "milky-mama.com",
+    "createdAt": "2026-01-09T20:44:48.813Z"
+  },
+  {
+    "id": "lucas",
+    "companyName": "Lucas",
+    "companyDescription": "A high-level e-commerce operator (potentially associated with Luca Netz/Pudgy Penguins given the \"Lucas\" and revenue scale context in snippets, though verified as \"Lucas\" in Hyros testimonials).",
+    "businessModel": "High volume E-commerce.",
+    "industry": "E-Commerce",
+    "logoUrl": "https://framerusercontent.com/images/iRyAKu1hbWRfXH3ZRijhC3GglA.png",
+    "quote": "Tracked & attributed $75 million through Hyros. Lucas couldn't run his business without it.",
+    "stat": "$75M",
+    "statLabel": "tracked revenue",
+    "benefitFocus": "scaling",
+    "tags": [
+      "dtc"
+    ],
+    "domain": "lucas.com",
+    "createdAt": "2026-01-09T20:44:48.813Z"
+  },
+  {
+    "id": "jj",
+    "companyName": "JJ",
+    "companyDescription": "E-commerce entrepreneur.",
+    "businessModel": "E-commerce.",
+    "industry": "E-Commerce",
+    "logoUrl": "https://framerusercontent.com/images/al8lp0Ifiilpu7cJfB4EX80.png",
+    "quote": "Before Hyros, tracking the performance of our weekly Facebook ad creatives was a guessing game... Hyros changed the game for us... The result was immediate ROI.",
+    "stat": "",
+    "statLabel": "",
+    "benefitFocus": "ai-targeting",
+    "tags": [
+      "dtc"
+    ],
+    "createdAt": "2026-01-09T20:44:48.813Z"
+  },
+  {
+    "id": "clickfunnels",
+    "companyName": "ClickFunnels",
+    "companyDescription": "ClickFunnels is a sales funnel builder software company that revolutionized online marketing. It helps entrepreneurs build websites and sales funnels.",
+    "businessModel": "SaaS subscription ($97-$297/mo).",
+    "industry": "SaaS & Technology",
+    "logoUrl": "https://framerusercontent.com/images/Rh9GwEmtv11Hjt0gDsWZrAPTF4.png",
+    "quote": "We use HYROS because it offers us clear insights. HYROS stands out. HYROS is a solid choice. Not using it is leaving tons of growth on the table.",
+    "stat": "",
+    "statLabel": "",
+    "benefitFocus": "scaling",
+    "tags": [
+      "subscription",
+      "saas"
+    ],
+    "domain": "clickfunnels.com",
+    "createdAt": "2026-01-09T20:44:48.813Z"
+  },
+  {
+    "id": "whop",
+    "companyName": "Whop",
+    "companyDescription": "Whop is a digital marketplace for buying and selling digital products, software, and communities (e.g., trading bots, Discord access).",
+    "businessModel": "Marketplace model, taking a percentage of Gross Merchandise Value (GMV).",
+    "industry": "SaaS & Technology",
+    "logoUrl": "https://framerusercontent.com/images/1PdlCMWpn1nqep9nDUdmu7ZBTCU.png",
+    "quote": "Crunching the data of our 100k+ active education businesses almost all of the ones doing \\>7-figures per month in revenue swear by Hyros. Not using it is leaving tons of growth, scale, and revenue on the table.",
+    "stat": "100k+",
+    "statLabel": "active",
+    "benefitFocus": "scaling",
+    "tags": [
+      "info-product",
+      "saas"
+    ],
+    "domain": "whop.com",
+    "createdAt": "2026-01-09T20:44:48.813Z"
+  },
+  {
+    "id": "iclosed-io",
+    "companyName": "iClosed.io",
+    "companyDescription": "iClosed is a high-converting AI scheduler and sales closing platform for high-ticket sales teams.",
+    "businessModel": "B2B SaaS/Service, helping sales teams optimize their calendar bookings and closing rates.",
+    "industry": "SaaS & Technology",
+    "logoUrl": "https://framerusercontent.com/images/dpEvaCUVwOcaURa9BiBviuMF5sU.png",
+    "quote": "Only attribution tool we trust to know which ads are worth scaling.",
+    "stat": "10k",
+    "statLabel": "improvement",
+    "benefitFocus": "ai-targeting",
+    "tags": [
+      "high-ticket",
+      "b2b",
+      "saas"
+    ],
+    "domain": "iclosed.io",
+    "createdAt": "2026-01-09T20:44:48.813Z"
+  },
+  {
+    "id": "daptatech",
+    "companyName": "DaptaTech",
+    "companyDescription": "DaptaTech is a provider of AI automation platforms and integrations for businesses.",
+    "businessModel": "Service/SaaS, helping businesses integrate AI agents and workflows.",
+    "industry": "SaaS & Technology",
+    "logoUrl": "https://framerusercontent.com/images/WxJVOoU9R54EblYfvQzO3QE6GI.png",
+    "quote": "With clearer visibility into what's actually converting, we were able to scale our paid ad campaigns from $5,000/month to $13,000/month confidently.",
+    "stat": "$13k",
+    "statLabel": "revenue growth",
+    "benefitFocus": "ai-targeting",
+    "tags": [
+      "saas"
+    ],
+    "domain": "dapta.ai",
+    "createdAt": "2026-01-09T20:44:48.813Z"
+  },
+  {
+    "id": "playboy-team",
+    "companyName": "Playboy Team",
+    "companyDescription": "The legendary lifestyle brand, now heavily pivoted to digital, licensing, and creator partnerships (Centerfold).",
+    "businessModel": "Media, Licensing, Lifestyle products, and Creator Subscriptions.",
+    "industry": "SaaS & Technology",
+    "logoUrl": "/uploads/testimonial-logos/Screenshot_2026-01-11_081435.png",
+    "quote": "HYROS revolutionized our decision making process by providing real-time data on Google ads.",
+    "stat": "",
+    "statLabel": "",
+    "benefitFocus": "ai-targeting",
+    "tags": [
+      "subscription"
+    ],
+    "domain": "playboy.com",
+    "createdAt": "2026-01-09T20:44:48.813Z"
+  },
+  {
+    "id": "runpod",
+    "companyName": "RunPod",
+    "companyDescription": "A cloud computing platform designed for AI and machine learning workloads (GPU rental).",
+    "businessModel": "IaaS (Infrastructure as a Service). Renting GPUs to developers.",
+    "industry": "SaaS & Technology",
+    "logoUrl": "https://framerusercontent.com/images/xJY7O4r333KiG7XTs79pP37LKak.png",
+    "quote": "deep tech",
+    "stat": "7X",
+    "statLabel": "improvement",
+    "benefitFocus": "ai-targeting",
+    "tags": [],
+    "domain": "runpod.io",
+    "createdAt": "2026-01-09T20:44:48.813Z"
+  },
+  {
+    "id": "matt-schmitt",
+    "companyName": "Matt Schmitt",
+    "companyDescription": "A legendary 9-figure e-commerce entrepreneur and founder of Smarter Contact (SMS marketing software).",
+    "businessModel": "Dropshipping, Brand Building, and SaaS.",
+    "industry": "E-Commerce",
+    "logoUrl": "https://framerusercontent.com/images/sAniqAIDHQmftlMnfpv8U8DD2mc.png",
+    "quote": "Made the switch from Twhale to HYROS. The tech is amazing. 5 star, highly recommend.",
+    "stat": "5",
+    "statLabel": "rating",
+    "personName": "Matt Schmitt",
+    "benefitFocus": "scaling",
+    "tags": [
+      "dtc",
+      "saas"
+    ],
+    "domain": "smartercontact.com",
+    "createdAt": "2026-01-09T20:44:48.813Z"
+  },
+  {
+    "id": "stockton",
+    "companyName": "Stockton",
+    "companyDescription": "A top YouTube ads media buyer and educator (Better Video Ads).",
+    "businessModel": "Agency/Education/Consulting.",
+    "industry": "Coaching & Consulting",
+    "logoUrl": "https://framerusercontent.com/images/bo0v7bDbfeCAJV3ZhEUJZTF0PDQ.png",
+    "quote": "After 90 days of using Alex Becker's True Tracking Software, Hyros, we've been able to scale 1 of our offers from $150,000 a month to $300,000 a month without increasing ad spends.",
+    "stat": "50%",
+    "statLabel": "improvement",
+    "benefitFocus": "scaling",
+    "tags": [
+      "info-product",
+      "coaching",
+      "agency"
+    ],
+    "domain": "bettervideoad.com",
+    "createdAt": "2026-01-09T20:44:48.813Z"
+  },
+  {
+    "id": "douglas-james",
+    "companyName": "Douglas James",
+    "companyDescription": "\"The High-Ticket Client Guy,\" helping entrepreneurs start their own business.",
+    "businessModel": "High-ticket coaching/consulting.",
+    "industry": "Coaching & Consulting",
+    "logoUrl": "https://framerusercontent.com/images/KZkl7OnP17XRVlgTcujp9J75XA.png",
+    "quote": "Scale 1 of our offers from $150,000 a month to $300,000 a month.",
+    "stat": "17X",
+    "statLabel": "improvement",
+    "personName": "Douglas James",
+    "benefitFocus": "scaling",
+    "tags": [
+      "high-ticket",
+      "coaching",
+      "agency"
+    ],
+    "domain": "thedouglasjames.com",
+    "createdAt": "2026-01-09T20:44:48.813Z"
+  },
+  {
+    "id": "cody-huelster",
+    "companyName": "Cody Huelster",
+    "companyDescription": "Simpler Trading is a financial education platform.",
+    "businessModel": "Info products/Membership for stock and options trading.",
+    "industry": "SaaS & Technology",
+    "logoUrl": "https://framerusercontent.com/images/J1PTvJeeQjDUuFtUb6kxVEyB9c.png",
+    "quote": "Since implementing Hyros, we've unlocked a level of attribution and campaign insight we never had before.",
+    "stat": "500%",
+    "statLabel": "roas",
+    "personName": "Tony Robbins",
+    "benefitFocus": "ai-targeting",
+    "tags": [
+      "info-product"
+    ],
+    "domain": "hyros.com",
+    "createdAt": "2026-01-09T20:44:48.814Z"
+  }
+]

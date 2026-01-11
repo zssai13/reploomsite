@@ -36,9 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
-# local data storage
-/.data
-/public/uploads
+# local data storage - NOW TRACKED for state persistence
+# /.data
+# /public/uploads
 
 # typescript
 *.tsbuildinfo
