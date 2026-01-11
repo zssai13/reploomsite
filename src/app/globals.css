@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+/* HYROS Brand Colors */
+:root {
+  /* Backgrounds */
+  --hyros-black: #000000;
+  --hyros-white: #ffffff;
+  --hyros-off-white: #f9fafb;
+  --hyros-gray-light: #f3f4f6;
+
+  /* Text */
+  --hyros-text-dark: #111827;
+  --hyros-text-light: #ffffff;
+  --hyros-text-muted: #9ca3af;
+  --hyros-text-gray: #6b7280;
+
+  /* Accents */
+  --hyros-blue: #3b82f6;
+  --hyros-yellow: #fcd34d;
+  --hyros-yellow-dark: #f59e0b;
+
+  /* Glass effect */
+  --hyros-glass-bg: rgba(255, 255, 255, 0.03);
+  --hyros-glass-border: rgba(255, 255, 255, 0.1);
+}
+
+@theme inline {
+  --color-background: var(--hyros-white);
+  --color-foreground: var(--hyros-text-dark);
+
+  /* Custom colors for Tailwind */
+  --color-hyros-black: var(--hyros-black);
+  --color-hyros-white: var(--hyros-white);
+  --color-hyros-off-white: var(--hyros-off-white);
+  --color-hyros-blue: var(--hyros-blue);
+  --color-hyros-yellow: var(--hyros-yellow);
+  --color-hyros-yellow-dark: var(--hyros-yellow-dark);
+  --color-hyros-text-dark: var(--hyros-text-dark);
+  --color-hyros-text-gray: var(--hyros-text-gray);
+  --color-hyros-text-muted: var(--hyros-text-muted);
+
+  /* Mobile-first breakpoints */
+  --breakpoint-xs: 375px;
+  --breakpoint-sm: 414px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+
+  /* Font families - use CSS variables from next/font */
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-serif: var(--font-playfair), 'Times New Roman', serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--hyros-white);
+  color: var(--hyros-text-dark);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography - tight letter spacing on headings */
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* Pill buttons */
+.btn-pill {
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--hyros-yellow) 0%, var(--hyros-yellow-dark) 100%);
+  color: var(--hyros-black);
+  padding: 16px 36px;
+}
+
+.btn-secondary {
+  background: var(--hyros-white);
+  color: var(--hyros-black);
+  padding: 14px 32px;
+}
+
+.btn-dark {
+  background: var(--hyros-black);
+  color: var(--hyros-white);
+  padding: 16px 36px;
+}
+
+/* Glass card effect */
+.glass-card {
+  background: var(--hyros-glass-bg);
+  border: 1px solid var(--hyros-glass-border);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+}
+
+/* Feature card */
+.feature-card {
+  background: var(--hyros-white);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 24px;
+  padding: 40px;
+}
+
+/* Rounded square avatar (NOT circle) */
+.avatar-square {
+  border-radius: 12px;
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+}
+
+/* Touch-friendly minimum */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Serif accent for impact numbers */
+.serif-accent {
+  font-family: var(--font-serif);
+  font-weight: 400;
+}
