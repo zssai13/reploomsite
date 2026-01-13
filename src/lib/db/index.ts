@@ -10,11 +10,16 @@ import { fileStorage } from './file-storage';
 import { kvStorage } from './kv-storage';
 import type { GeneratedPage, Testimonial, Settings, TestimonialEntry, BenefitFocus } from '@/types';
 
+// Check if KV is configured (supports both Upstash prefixed and standard env vars)
+function isKvConfigured(): boolean {
+  return !!(process.env.hyroskv_KV_REST_API_URL || process.env.KV_REST_API_URL);
+}
+
 // Determine which storage provider to use
 function getStorageProvider(): StorageProvider {
-  // Use KV if the environment variable is set (Vercel KV is configured)
-  if (process.env.KV_REST_API_URL) {
-    console.log('[DB] Using Vercel KV storage');
+  // Use KV if the environment variable is set (Vercel KV / Upstash is configured)
+  if (isKvConfigured()) {
+    console.log('[DB] Using Vercel KV storage (Upstash)');
     return kvStorage;
   }
   console.log('[DB] Using file-based storage');
@@ -33,7 +38,7 @@ function getProvider(): StorageProvider {
 
 // Export which storage is being used (for debugging)
 export function getStorageType(): 'kv' | 'file' {
-  return process.env.KV_REST_API_URL ? 'kv' : 'file';
+  return isKvConfigured() ? 'kv' : 'file';
 }
 
 // ============ PAGES ============

@@ -1,9 +1,16 @@
 // Vercel KV (Redis) storage implementation for production
-// This stores data persistently in Vercel's managed Redis
+// This stores data persistently in Vercel's managed Redis (via Upstash)
 
-import { kv } from '@vercel/kv';
+import { createClient } from '@vercel/kv';
 import type { StorageProvider } from './storage-interface';
 import type { GeneratedPage, Testimonial, Settings, TestimonialEntry, BenefitFocus } from '@/types';
+
+// Create KV client with Upstash env vars (prefixed with hyroskv_)
+// Falls back to standard KV_* env vars if the prefixed ones don't exist
+const kv = createClient({
+  url: process.env.hyroskv_KV_REST_API_URL || process.env.KV_REST_API_URL || '',
+  token: process.env.hyroskv_KV_REST_API_TOKEN || process.env.KV_REST_API_TOKEN || '',
+});
 
 // Redis key constants - prefixed to avoid collisions
 const KEYS = {

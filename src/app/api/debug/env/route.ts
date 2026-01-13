@@ -5,7 +5,9 @@ import { getStorageType } from '@/lib/db';
 // Access at /api/debug/env
 export async function GET() {
   const storageType = getStorageType();
-  const isKvConfigured = !!process.env.KV_REST_API_URL;
+  // Check both Upstash prefixed and standard env vars
+  const kvUrl = process.env.hyroskv_KV_REST_API_URL || process.env.KV_REST_API_URL;
+  const isKvConfigured = !!kvUrl;
 
   const envCheck = {
     timestamp: new Date().toISOString(),
@@ -25,11 +27,15 @@ export async function GET() {
     storage: {
       provider: storageType,
       kvConfigured: isKvConfigured,
-      KV_REST_API_URL: isKvConfigured
-        ? `✓ Set (${process.env.KV_REST_API_URL?.substring(0, 30)}...)`
+      // Show which env var format is being used
+      hyroskv_KV_REST_API_URL: process.env.hyroskv_KV_REST_API_URL
+        ? `✓ Set (${process.env.hyroskv_KV_REST_API_URL.substring(0, 30)}...)`
         : '✗ NOT SET',
+      KV_REST_API_URL: process.env.KV_REST_API_URL
+        ? `✓ Set (${process.env.KV_REST_API_URL.substring(0, 30)}...)`
+        : '✗ NOT SET (using hyroskv_ prefix instead)',
       status: isKvConfigured
-        ? '✓ Using Vercel KV (persistent storage)'
+        ? '✓ Using Vercel KV / Upstash (persistent storage)'
         : process.env.VERCEL === '1'
           ? '⚠ Using file storage on Vercel (data will not persist!)'
           : '✓ Using file storage (local development)',

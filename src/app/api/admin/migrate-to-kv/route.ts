@@ -4,9 +4,19 @@
 // This endpoint reads the JSON files deployed with the app and copies them to KV
 
 import { NextResponse } from 'next/server';
-import { kv } from '@vercel/kv';
+import { createClient } from '@vercel/kv';
 import { promises as fs } from 'fs';
 import path from 'path';
+
+// Create KV client with Upstash env vars (supports both prefixed and standard)
+const kvUrl = process.env.hyroskv_KV_REST_API_URL || process.env.KV_REST_API_URL || '';
+const kvToken = process.env.hyroskv_KV_REST_API_TOKEN || process.env.KV_REST_API_TOKEN || '';
+const kv = createClient({ url: kvUrl, token: kvToken });
+
+// Check if KV is configured
+function isKvConfigured(): boolean {
+  return !!(process.env.hyroskv_KV_REST_API_URL || process.env.KV_REST_API_URL);
+}
 
 // Redis keys (must match kv-storage.ts)
 const KEYS = {
@@ -36,9 +46,9 @@ export async function POST(request: Request) {
   }
 
   // Check if KV is configured
-  if (!process.env.KV_REST_API_URL) {
+  if (!isKvConfigured()) {
     return NextResponse.json(
-      { error: 'Vercel KV not configured - KV_REST_API_URL not set' },
+      { error: 'Vercel KV not configured - neither hyroskv_KV_REST_API_URL nor KV_REST_API_URL is set' },
       { status: 500 }
     );
   }
@@ -109,10 +119,10 @@ export async function POST(request: Request) {
 
 // GET endpoint to check migration status
 export async function GET() {
-  if (!process.env.KV_REST_API_URL) {
+  if (!isKvConfigured()) {
     return NextResponse.json({
       kvConfigured: false,
-      message: 'Vercel KV not configured',
+      message: 'Vercel KV not configured - neither hyroskv_KV_REST_API_URL nor KV_REST_API_URL is set',
     });
   }
 
