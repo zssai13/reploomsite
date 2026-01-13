@@ -1,8 +1,12 @@
 import { NextResponse } from 'next/server';
+import { getStorageType } from '@/lib/db';
 
 // Debug endpoint to check environment configuration
 // Access at /api/debug/env
 export async function GET() {
+  const storageType = getStorageType();
+  const isKvConfigured = !!process.env.KV_REST_API_URL;
+
   const envCheck = {
     timestamp: new Date().toISOString(),
     environment: {
@@ -18,12 +22,23 @@ export async function GET() {
         ? '✓ Set'
         : '✗ NOT SET',
     },
-    filesystem: {
-      isVercel: process.env.VERCEL === '1',
-      writeDir: process.env.VERCEL === '1' ? '/tmp' : '.data & public/uploads',
-      note: process.env.VERCEL === '1'
-        ? 'Running on Vercel - filesystem writes go to /tmp (ephemeral)'
-        : 'Running locally - filesystem writes persist',
+    storage: {
+      provider: storageType,
+      kvConfigured: isKvConfigured,
+      KV_REST_API_URL: isKvConfigured
+        ? `✓ Set (${process.env.KV_REST_API_URL?.substring(0, 30)}...)`
+        : '✗ NOT SET',
+      status: isKvConfigured
+        ? '✓ Using Vercel KV (persistent storage)'
+        : process.env.VERCEL === '1'
+          ? '⚠ Using file storage on Vercel (data will not persist!)'
+          : '✓ Using file storage (local development)',
+    },
+    migration: {
+      endpoint: '/api/admin/migrate-to-kv',
+      checkStatus: 'GET /api/admin/migrate-to-kv',
+      runMigration: 'POST /api/admin/migrate-to-kv with Authorization: Bearer <MIGRATION_SECRET>',
+      migrationSecretSet: !!process.env.MIGRATION_SECRET,
     },
     recommendations: [] as string[],
   };
@@ -39,9 +54,14 @@ export async function GET() {
       'Set NEXTAUTH_SECRET in Vercel project settings (generate with: openssl rand -base64 32)'
     );
   }
-  if (process.env.VERCEL === '1') {
+  if (process.env.VERCEL === '1' && !isKvConfigured) {
     envCheck.recommendations.push(
-      'Note: On Vercel, newly generated pages are stored in /tmp and will be lost on function restart. Consider using Vercel KV for persistent data.'
+      'CRITICAL: Set up Vercel KV for persistent storage. Go to Vercel Dashboard > Storage > Create Database > KV'
+    );
+  }
+  if (isKvConfigured && !process.env.MIGRATION_SECRET) {
+    envCheck.recommendations.push(
+      'Set MIGRATION_SECRET env var to enable data migration from files to KV'
     );
   }
 
