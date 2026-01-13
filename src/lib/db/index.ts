@@ -1,45 +1,78 @@
 // Database layer with local JSON fallback for development
 // Uses Vercel KV in production, local files in development
+// IMPORTANT: On Vercel serverless, filesystem is read-only except /tmp
 
 import { promises as fs } from 'fs';
 import path from 'path';
 import type { GeneratedPage, Testimonial, Settings, TestimonialEntry, BenefitFocus } from '@/types';
 
-const DATA_DIR = path.join(process.cwd(), '.data');
+// Detect if running on Vercel
+const IS_VERCEL = process.env.VERCEL === '1';
+
+// On Vercel, use /tmp for writes; locally use .data
+const DATA_DIR = IS_VERCEL ? '/tmp/.data' : path.join(process.cwd(), '.data');
+
+// For reading existing data (deployed with the app)
+const DEPLOYED_DATA_DIR = path.join(process.cwd(), '.data');
+
 const PAGES_FILE = path.join(DATA_DIR, 'pages.json');
 const TESTIMONIALS_FILE = path.join(DATA_DIR, 'testimonials.json');
 const TESTIMONIAL_BANK_FILE = path.join(DATA_DIR, 'testimonial-bank.json');
 const SETTINGS_FILE = path.join(DATA_DIR, 'settings.json');
+
+// Deployed file paths (read-only on Vercel)
+const DEPLOYED_PAGES_FILE = path.join(DEPLOYED_DATA_DIR, 'pages.json');
+const DEPLOYED_TESTIMONIALS_FILE = path.join(DEPLOYED_DATA_DIR, 'testimonials.json');
+const DEPLOYED_TESTIMONIAL_BANK_FILE = path.join(DEPLOYED_DATA_DIR, 'testimonial-bank.json');
+const DEPLOYED_SETTINGS_FILE = path.join(DEPLOYED_DATA_DIR, 'settings.json');
 
 // Ensure data directory exists
 async function ensureDataDir() {
   try {
     await fs.mkdir(DATA_DIR, { recursive: true });
   } catch {
-    // Directory exists
+    // Directory exists or can't be created
   }
 }
 
 // Generic file read/write helpers
-async function readJsonFile<T>(filePath: string, defaultValue: T): Promise<T> {
+// On Vercel, tries /tmp first, then falls back to deployed data
+async function readJsonFile<T>(filePath: string, defaultValue: T, deployedFilePath?: string): Promise<T> {
   await ensureDataDir();
+
+  // First try the primary path (on Vercel this is /tmp)
   try {
     const data = await fs.readFile(filePath, 'utf-8');
     return JSON.parse(data);
   } catch {
+    // If on Vercel and we have a deployed path, try that
+    if (IS_VERCEL && deployedFilePath) {
+      try {
+        const data = await fs.readFile(deployedFilePath, 'utf-8');
+        return JSON.parse(data);
+      } catch {
+        return defaultValue;
+      }
+    }
     return defaultValue;
   }
 }
 
 async function writeJsonFile<T>(filePath: string, data: T): Promise<void> {
   await ensureDataDir();
-  await fs.writeFile(filePath, JSON.stringify(data, null, 2));
+  try {
+    await fs.writeFile(filePath, JSON.stringify(data, null, 2));
+  } catch (err) {
+    const errorMsg = err instanceof Error ? err.message : String(err);
+    console.error(`[DB] Failed to write file: ${errorMsg}`);
+    throw new Error(`Database write failed: ${errorMsg}. On Vercel, data written to /tmp is ephemeral.`);
+  }
 }
 
 // ============ PAGES ============
 
 export async function getAllPages(): Promise<GeneratedPage[]> {
-  const pages = await readJsonFile<GeneratedPage[]>(PAGES_FILE, []);
+  const pages = await readJsonFile<GeneratedPage[]>(PAGES_FILE, [], DEPLOYED_PAGES_FILE);
   return pages.sort((a, b) =>
     new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
   );
@@ -89,7 +122,7 @@ export async function searchPages(query: string): Promise<GeneratedPage[]> {
 // ============ TESTIMONIALS ============
 
 export async function getAllTestimonials(): Promise<Testimonial[]> {
-  return readJsonFile<Testimonial[]>(TESTIMONIALS_FILE, []);
+  return readJsonFile<Testimonial[]>(TESTIMONIALS_FILE, [], DEPLOYED_TESTIMONIALS_FILE);
 }
 
 export async function getTestimonialById(id: string): Promise<Testimonial | null> {
@@ -122,7 +155,7 @@ export async function deleteTestimonial(id: string): Promise<void> {
 // ============ TESTIMONIAL BANK (Rich testimonials for AI selection) ============
 
 export async function getTestimonialBank(): Promise<TestimonialEntry[]> {
-  return readJsonFile<TestimonialEntry[]>(TESTIMONIAL_BANK_FILE, []);
+  return readJsonFile<TestimonialEntry[]>(TESTIMONIAL_BANK_FILE, [], DEPLOYED_TESTIMONIAL_BANK_FILE);
 }
 
 export async function saveTestimonialBank(testimonials: TestimonialEntry[]): Promise<void> {
@@ -182,7 +215,7 @@ This page should feel custom-written for THIS prospect, not a generic template.`
 };
 
 export async function getSettings(): Promise<Settings> {
-  return readJsonFile<Settings>(SETTINGS_FILE, DEFAULT_SETTINGS);
+  return readJsonFile<Settings>(SETTINGS_FILE, DEFAULT_SETTINGS, DEPLOYED_SETTINGS_FILE);
 }
 
 export async function updateSettings(updates: Partial<Settings>): Promise<Settings> {

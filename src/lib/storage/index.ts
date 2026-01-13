@@ -1,10 +1,20 @@
 // File storage layer with local fallback for development
 // Uses Vercel Blob in production, local files in development
+// IMPORTANT: On Vercel serverless, filesystem is read-only except /tmp
 
 import { promises as fs } from 'fs';
 import path from 'path';
 
-const UPLOADS_DIR = path.join(process.cwd(), 'public', 'uploads');
+// Detect if running on Vercel
+const IS_VERCEL = process.env.VERCEL === '1';
+
+// On Vercel, use /tmp for writes; locally use public/uploads
+const UPLOADS_DIR = IS_VERCEL
+  ? '/tmp/uploads'
+  : path.join(process.cwd(), 'public', 'uploads');
+
+// For reading existing files (deployed with the app)
+const PUBLIC_UPLOADS_DIR = path.join(process.cwd(), 'public', 'uploads');
 
 // Ensure uploads directory exists
 async function ensureUploadsDir(subdir?: string) {
@@ -12,7 +22,7 @@ async function ensureUploadsDir(subdir?: string) {
   try {
     await fs.mkdir(dir, { recursive: true });
   } catch {
-    // Directory exists
+    // Directory exists or can't be created
   }
   return dir;
 }
@@ -27,7 +37,7 @@ export interface UploadResult {
 /**
  * Upload a file to storage
  * In development: saves to public/uploads folder
- * In production: would use Vercel Blob
+ * On Vercel: saves to /tmp (ephemeral) and returns a data URL for images
  */
 export async function uploadFile(
   file: File | Buffer,
@@ -40,16 +50,33 @@ export async function uploadFile(
 
   // Convert File to Buffer if needed
   let buffer: Buffer;
+  let mimeType = 'application/octet-stream';
   if (file instanceof File) {
     const arrayBuffer = await file.arrayBuffer();
     buffer = Buffer.from(arrayBuffer);
+    mimeType = file.type || mimeType;
   } else {
     buffer = file;
   }
 
-  await fs.writeFile(filePath, buffer);
+  try {
+    await fs.writeFile(filePath, buffer);
+  } catch (err) {
+    const errorMsg = err instanceof Error ? err.message : String(err);
+    console.error(`[Storage] Failed to write file: ${errorMsg}`);
+    throw new Error(`Storage write failed: ${errorMsg}. On Vercel, consider using Vercel Blob for persistent storage.`);
+  }
 
-  // Return public URL
+  // On Vercel with /tmp, the file won't be publicly accessible via URL
+  // For images, we'll return a data URL; for other files, return the tmp path
+  if (IS_VERCEL && (type === 'logos' || type === 'testimonials' || type === 'testimonial-logos')) {
+    // Return data URL for images on Vercel (works for embedding in pages)
+    const base64 = buffer.toString('base64');
+    const dataUrl = `data:${mimeType};base64,${base64}`;
+    return { url: dataUrl, filename: safeName };
+  }
+
+  // Return public URL (works locally and for files deployed with the app)
   const url = `/uploads/${type}/${safeName}`;
   return { url, filename: safeName };
 }
@@ -71,13 +98,24 @@ export async function deleteFile(url: string): Promise<void> {
 
 /**
  * Read a text file from storage (for RAG documents)
+ * On Vercel, tries both the deployed public/uploads and /tmp
  */
 export async function readTextFile(url: string): Promise<string | null> {
   if (url.startsWith('/uploads/')) {
-    const filePath = path.join(process.cwd(), 'public', url);
+    // First try the deployed public/uploads (for files deployed with the app)
+    const publicPath = path.join(PUBLIC_UPLOADS_DIR, url.replace('/uploads/', ''));
     try {
-      return await fs.readFile(filePath, 'utf-8');
+      return await fs.readFile(publicPath, 'utf-8');
     } catch {
+      // If not found in public, try /tmp on Vercel
+      if (IS_VERCEL) {
+        const tmpPath = path.join('/tmp/uploads', url.replace('/uploads/', ''));
+        try {
+          return await fs.readFile(tmpPath, 'utf-8');
+        } catch {
+          return null;
+        }
+      }
       return null;
     }
   }

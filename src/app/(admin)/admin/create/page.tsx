@@ -17,11 +17,18 @@ interface ReloadData {
   companyLogoUrl: string;
 }
 
+interface ErrorDetails {
+  error: string;
+  errorCode?: string;
+  details?: string;
+  timestamp?: string;
+}
+
 export default function CreatePage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [errorDetails, setErrorDetails] = useState<ErrorDetails | null>(null);
   const [reloadData, setReloadData] = useState<ReloadData | null>(null);
 
   // Parse reload data from URL params
@@ -39,7 +46,7 @@ export default function CreatePage() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setError('');
+    setErrorDetails(null);
     setLoading(true);
 
     const formData = new FormData(e.currentTarget);
@@ -49,13 +56,13 @@ export default function CreatePage() {
     const researchFile = formData.get('businessResearch') as File;
 
     if (!logoFile || logoFile.size === 0) {
-      setError('Company logo is required');
+      setErrorDetails({ error: 'Company logo is required', errorCode: 'CLIENT_VALIDATION' });
       setLoading(false);
       return;
     }
 
     if (!researchFile || researchFile.size === 0) {
-      setError('Business research file is required');
+      setErrorDetails({ error: 'Business research file is required', errorCode: 'CLIENT_VALIDATION' });
       setLoading(false);
       return;
     }
@@ -71,10 +78,19 @@ export default function CreatePage() {
       if (data.success) {
         router.push(`/admin/pages?created=${data.data.slug}`);
       } else {
-        setError(data.error || 'Generation failed');
+        setErrorDetails({
+          error: data.error || 'Generation failed',
+          errorCode: data.errorCode,
+          details: data.details,
+          timestamp: data.timestamp,
+        });
       }
-    } catch {
-      setError('An error occurred');
+    } catch (err) {
+      setErrorDetails({
+        error: 'Network error - could not reach server',
+        errorCode: 'NETWORK_ERROR',
+        details: err instanceof Error ? err.message : String(err),
+      });
     } finally {
       setLoading(false);
     }
@@ -309,9 +325,29 @@ export default function CreatePage() {
           </div>
         </div>
 
-        {error && (
-          <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm">
-            {error}
+        {errorDetails && (
+          <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-sm space-y-2">
+            <div className="flex items-start justify-between">
+              <span className="font-medium text-red-700">{errorDetails.error}</span>
+              {errorDetails.errorCode && (
+                <span className="text-xs font-mono bg-red-100 text-red-600 px-2 py-1 rounded">
+                  {errorDetails.errorCode}
+                </span>
+              )}
+            </div>
+            {errorDetails.details && (
+              <div className="text-red-600 text-xs font-mono bg-red-100 p-2 rounded overflow-x-auto">
+                {errorDetails.details}
+              </div>
+            )}
+            {errorDetails.timestamp && (
+              <div className="text-red-400 text-xs">
+                Timestamp: {errorDetails.timestamp}
+              </div>
+            )}
+            <div className="text-red-500 text-xs pt-2 border-t border-red-200">
+              Copy this error info and share it for debugging.
+            </div>
           </div>
         )}
 
